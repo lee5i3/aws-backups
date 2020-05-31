@@ -5,16 +5,15 @@ import (
 )
 
 var (
+	gitCommit string
+
 	// Used for flags.
 	region  string
 	profile string
 
 	rootCmd = &cobra.Command{
-		Use:   "cobra",
+		Use:   "aws-backups",
 		Short: "A generator for Cobra based Applications",
-		Long: `Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
 	}
 )
 
@@ -25,6 +24,6 @@ func Execute() error {
 
 func init() {
 
-	rootCmd.PersistentFlags().StringVarP(&profile, "profile", "p", "default", "author name for copyright attribution")
-	rootCmd.PersistentFlags().StringVarP(&region, "region", "r", "us-east-1", "name of license for the project")
+	rootCmd.PersistentFlags().StringVarP(&profile, "profile", "p", "default", "AWS profile to use for connecting")
+	rootCmd.PersistentFlags().StringVarP(&region, "region", "r", "us-east-1", "AWS region")
 }
